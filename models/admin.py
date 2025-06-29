@@ -1,4 +1,4 @@
-import menu
+from menu import Menu
 
 class Admin:
     def __init__ (self , name: str , email: str, phone: str, username: str, password: str):
@@ -7,7 +7,7 @@ class Admin:
         self.__phone = phone
         self.__username = username
         self.__password = password
-        self.menu = menu
+        self.menu = Menu
 
     def login (self, username: str, password: str):
         if self.username == username and self.password == password:
@@ -72,5 +72,37 @@ class Admin:
                     break
                 case _:
                     print("Invalid input.")
+    
+
+    def add_dish(self, dish: str, price: float):
+        self.menu.add_dish(dish, price)
+
+    def remove_dish (self, dish: str):
+        self.menu.remove_dish(dish)
+
+    def update_dish (self, dish: str, new_price: float):
+        self.menu.update_dish(dish, new_price)
+
+    def display_menu(self):
+        self.menu.display_menu()
+
+    def to_dict(self):
+        return {
+            "name" : self.__name,
+            "email" : self.__email,
+            "phone" : self.__phone,
+            "username" : self.__username,
+            "password" : self.__password
+        }
+    
+    @staticmethod
+    def from_dict(data: dict):
+        return Admin(
+            name = data["name"], 
+            email = data["email"],
+            phone = data["phone"],
+            username = data["username"],
+            password = data["password"]
+        )
 
 
