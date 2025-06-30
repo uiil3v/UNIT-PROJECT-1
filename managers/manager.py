@@ -62,6 +62,7 @@ class Manager:
             print(f"- Name: {data._Employee__name}")
             print(f"- Email: {data._Employee__email}")
             print(f"- Phone: {data._Employee__phone}")
+            print(f"- Position: {data._Employee__position}")
             print(f"- ID: {data._Employee__id}")
             print()
 

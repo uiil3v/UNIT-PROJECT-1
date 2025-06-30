@@ -46,8 +46,9 @@ if logged_in:
                     employeeName = input("Enter the name: ")
                     employeeEmail = input("Enter the email: ")
                     employeePhone = input("Enter the phone: ")
+                    employeePosition = input("Enter the position: ")
                     employeeID = input("Enter the ID: ")
-                    new_employee = Employee(employeeName, employeeEmail, employeePhone, employeeID)
+                    new_employee = Employee(employeeName, employeeEmail, employeePhone, employeePosition, employeeID)
                     print()
                     employeesManager.add_employee(new_employee)
                 case "3":

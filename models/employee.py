@@ -1,10 +1,11 @@
 
 
 class Employee:
-    def __init__ (self , name: str , email: str, phone: str, id: str):
+    def __init__ (self , name: str , email: str, phone: str, position: str,  id: str):
         self.__name = name
         self.__email = email
         self.__phone = phone
+        self.__position = position
         self.__id = id
         
     def employeeInfo(self):
@@ -15,6 +16,7 @@ class Employee:
         print(f"- Name: {self.__name}")
         print(f"- Email: {self.__email}")
         print(f"- Phone: {self.__phone}")
+        print(f"- Position: {self.__position}")
         print(f"- ID: {self.__id}")
     
 
@@ -25,8 +27,9 @@ class Employee:
             print("1. Name")
             print("2. Email")
             print("3. Phone")
-            print("4. ID")
-            print("5. Exit")
+            print("4. Position")
+            print("5. ID")
+            print("6. Exit")
             print()
 
             choice = input("Enter your choice: ")
@@ -51,11 +54,14 @@ class Employee:
                     else:
                         print("Invalid phone number.")
                 case "4":
+                    new_position = input("Enter the new position: ")
+                    self.__position = new_position
+                case "5":
                     new_id = input("Enter the new ID: ").strip()
                     if new_id.isdigit():
                         self.__id = new_id
                     print(f"ID changed to {new_id} successfully.")
-                case "5":
+                case "6":
                     break
                 case _:
                     print("Invalid input.")
@@ -67,6 +73,7 @@ class Employee:
             "name" : self.__name,
             "email" : self.__email,
             "phone" : self.__phone,
+            "position" : self.__position,
             "id" : self.__id
         }
     
@@ -76,6 +83,7 @@ class Employee:
             name = data["name"], 
             email = data["email"],
             phone = data["phone"],
+            position = data["position"],
             id = data["id"]
         )
 
