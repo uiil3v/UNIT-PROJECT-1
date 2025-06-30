@@ -30,10 +30,11 @@ if logged_in:
             print(f"-" * 19)
             print("# Choose an option: ")
             print(f"-" * 19)
-            print("1. List admins")
-            print("2. Add admin")
-            print("3. remove admin")
-            print("4. Exit")
+            print("1. List employee")
+            print("2. Add employee")
+            print("3. remove employee")
+            print("4. Update employee information")
+            print("5. Exit")
             print()
             option = input("Your choice: ").strip()
 
@@ -60,6 +61,9 @@ if logged_in:
                         print("The ID must be a number.")
                     print()
                 case "4":
+                    print()
+                    employeesManager.update_employee_info()
+                case "5":
                     break
 
                 case _:
