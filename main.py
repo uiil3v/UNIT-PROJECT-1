@@ -4,26 +4,30 @@ from models.employee import Employee
 manager = Manager()
 manager.load_managers()
 
-
-print("***Sign in***")
-username = input("Enter the username: ").lower().strip()
-password = input("Enter the password: ").lower().strip()
-
-
-
 logged_in = False
 logged_manager = None
-for admin in manager._Manager__managers:
-    if admin._ManagerAccount__username == username and admin._ManagerAccount__password == password:
-        logged_in = True
-        logged_manager = admin
+while True:
+    print()
+    print("*** SIGN IN ***")
+    username = input("Enter the username: ").lower().strip()
+    password = input("Enter the password: ").lower().strip()
+
+    for admin in manager._Manager__managers:
+        if admin._ManagerAccount__username == username and admin._ManagerAccount__password == password:
+            logged_in = True
+            logged_manager = admin
+            break
+
+    if logged_in:
         break
-        
+    else:
+        print()
+        print("- Wrong username or password. Please try again.")
+       
 
-
+employeesManager = Manager()
+employeesManager.load_employees()
 if logged_in:
-    employeesManager = Manager()
-    employeesManager.load_employees()
     while True:
             print()
             print(f"Welcome, {logged_manager._ManagerAccount__name}!")
@@ -75,4 +79,3 @@ if logged_in:
 
 
 
-   
