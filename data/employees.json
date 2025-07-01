@@ -1,23 +1,72 @@
 [
     {
-        "name": "Najy",
-        "email": "najy@gmail.com",
+        "name": "Ahmed",
+        "email": "ahmed@gmail.com",
         "phone": "0532575691",
         "position": "cashier",
-        "id": "1"
+        "id": "101"
     },
     {
         "name": "Abdullah",
         "email": "abdullah@hotmail.com",
         "phone": "0532317317",
         "position": "waiter",
-        "id": "2"
+        "id": "102"
     },
     {
         "name": "Faisal",
         "email": "faisal@gmail.com",
         "phone": "0500000000",
         "position": "waiter",
-        "id": "3"
+        "id": "103"
+    },
+    {
+        "name": "Mona",
+        "email": "mona@outlook.com",
+        "phone": "0561234567",
+        "position": "chef",
+        "id": "104"
+    },
+    {
+        "name": "Saeed",
+        "email": "saeed@gmail.com",
+        "phone": "0551112222",
+        "position": "cleaner",
+        "id": "105"
+    },
+    {
+        "name": "Huda",
+        "email": "huda@hotmail.com",
+        "phone": "0547894561",
+        "position": "cashier",
+        "id": "106"
+    },
+    {
+        "name": "Omar",
+        "email": "omar@outlook.com",
+        "phone": "0533211234",
+        "position": "waiter",
+        "id": "107"
+    },
+    {
+        "name": "Noura",
+        "email": "noura@gmail.com",
+        "phone": "0576543210",
+        "position": "chef",
+        "id": "108"
+    },
+    {
+        "name": "Talal",
+        "email": "talal@hotmail.com",
+        "phone": "0501113344",
+        "position": "cleaner",
+        "id": "109"
+    },
+    {
+        "name": "Sara",
+        "email": "sara@outlook.com",
+        "phone": "0588889999",
+        "position": "waiter",
+        "id": "110"
     }
 ]

@@ -4,7 +4,7 @@ from models.menu import Menu
 from models.managerAccount import ManagerAccount
 
 class Manager:
-
+    
     def __init__ (self):
         self.__employees = []
         self.__managers = []
@@ -36,7 +36,7 @@ class Manager:
     def add_employee(self, employee: Employee):
         self.__employees.append(employee)
         self.save_employees()
-        print("New employee has been added, successfully.")
+        print("- New employee has been added successfully.")
     
     def remove_employee(self, id: str):
         removed = None
@@ -48,9 +48,11 @@ class Manager:
         if removed:
             self.__employees = [employee for employee in self.__employees if employee._Employee__id != id]
             self.save_employees()
-            print(f"{removed._Employee__name} whose ID: {id}, has been removed successfully.")
+            print()
+            print(f"- Employee '{removed._Employee__name}' with ID: {id}, has been removed successfully.")
         else:
-            print(f"No employee found with ID: {id}")
+            print()
+            print(f"- No employee found with ID: {id}.")
     
     def update_employee_info(self):
         employeeID = input("Enter the employee ID to update: ").strip()
@@ -75,42 +77,56 @@ class Manager:
                         case "1":
                             new_name = input("Enter the new name: ")
                             emp._Employee__name = new_name
-                            print(f"Name changed to {new_name} successfully.")
+                            print()
+                            print(f"- Name changed to {new_name} successfully.")
                         case "2":
                             new_email = input("Enter the new email(@gmail, @hotmail, or @outlook): ").lower().strip()
                             if new_email.endswith(("@gmail.com", "@hotmail.com" , "@outlook.com")):
                                 emp._Employee__email = new_email
-                                print(f"Email changed to {new_email} successfully.")
+                                print()
+                                print(f"- Email changed to {new_email} successfully.")
                             else:
-                                print("Invalid email domain.")
+                                print()
+                                print("- Invalid email domain.")
                         case "3":
                             new_phone = input("Enter the new phone(05********): ")
                             if new_phone.startswith("05") and new_phone.isdigit() and len(new_phone) == 10:
                                 emp._Employee__phone = new_phone
-                                print(f"Phone changed to {new_phone} successfully.")
+                                print()
+                                print(f"- Phone changed to {new_phone} successfully.")
                             else:
-                                print("Invalid phone number.")
+                                print()
+                                print("- Invalid phone number.")
                         case "4":
                             new_position = input("Enter the new position: ")
                             emp._Employee__position = new_position
+                            print()
+                            print(f"- Position changed to {new_position} successfully.")
                         case "5":
-                            new_id = input("Enter the new ID: ").strip()
+                            new_id = input("Enter the new ID(numbers): ").strip()
                             if new_id.isdigit():
                                 emp._Employee__id = new_id
-                            print(f"ID changed to {new_id} successfully.")
+                                print()
+                                print(f"- ID changed to {new_id} successfully.")
+                            else:
+                                print()
+                                print("- Invalid inputs.")
                         case "6":
                             break
                         case _:
-                            print("Invalid input.")
+                            print("- Invalid input.")
                 self.save_employees()
                 break
         if not found:
-            print("The ID not found!")
+            print()
+            print("- The ID not found!")
     
     def list_employees(self):
         if not self.__employees:
-            print("No employees found.")
+            print("- No employees found.")
             return
+        print()
+        print("---- Employees ----")
         for index, data in enumerate(self.__employees , start=1):
             print()
             print(f"# Employee {index}:")
@@ -120,15 +136,3 @@ class Manager:
             print(f"- Position: {data._Employee__position}")
             print(f"- ID: {data._Employee__id}")
             print()
-
-    def add_dish(self, dish: str, price: float):
-        self.menu.add_dish(dish, price)
-
-    def remove_dish (self, dish: str):
-        self.menu.remove_dish(dish)
-
-    def update_dish (self, dish: str, new_price: float):
-        self.menu.update_dish(dish, new_price)
-
-    def display_menu(self):
-        self.menu.display_menu()

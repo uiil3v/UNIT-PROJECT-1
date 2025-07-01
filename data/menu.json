@@ -1,1 +1,50 @@
-[]
+[
+    {
+        "name": "Cheese Burger",
+        "price": "15"
+    },
+    {
+        "name": "Chicken Burger",
+        "price": "14"
+    },
+    {
+        "name": "Beef Burger",
+        "price": "18"
+    },
+    {
+        "name": "French Fries",
+        "price": "7"
+    },
+    {
+        "name": "Curly Fries",
+        "price": "8"
+    },
+    {
+        "name": "Chicken Nuggets",
+        "price": "12"
+    },
+    {
+        "name": "Onion Rings",
+        "price": "6"
+    },
+    {
+        "name": "Pepsi",
+        "price": "4"
+    },
+    {
+        "name": "Coca-Cola",
+        "price": "4"
+    },
+    {
+        "name": "Sprite",
+        "price": "4"
+    },
+    {
+        "name": "Water Bottle",
+        "price": "2"
+    },
+    {
+        "name": "Ice Cream Cone",
+        "price": "5"
+    }
+]
