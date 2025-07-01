@@ -1,6 +1,6 @@
 from managers.manager import Manager
 from models.employee import Employee
-from models.menu import Menu
+from managers.menu import Menu
 
 manager = Manager()
 manager.load_managers()

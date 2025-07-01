@@ -1,6 +1,5 @@
 import json
 from models.employee import Employee
-from models.menu import Menu
 from models.managerAccount import ManagerAccount
 
 class Manager:
@@ -8,7 +7,6 @@ class Manager:
     def __init__ (self):
         self.__employees = []
         self.__managers = []
-        self.menu = Menu
 
         
     def load_managers(self):
