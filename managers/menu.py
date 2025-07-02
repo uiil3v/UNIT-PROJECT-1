@@ -41,7 +41,6 @@ class Menu:
         else:
             print()
             print("------- Menu -------")
-            print()
             for dish in self.__menu:
                 print(f"{dish._Dish__name}: {dish._Dish__price} SR")
             print()

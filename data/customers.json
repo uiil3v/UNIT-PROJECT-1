@@ -1,0 +1,113 @@
+[
+    {
+        "phone": "0538146146",
+        "loyalty_points": 49,
+        "membership_level": "Bronze",
+        "order_history": [
+            {
+                "cart_items": [
+                    {
+                        "name": "Chicken Burger",
+                        "price": "14",
+                        "quantity": 2
+                    },
+                    {
+                        "name": "Coca-Cola",
+                        "price": "4",
+                        "quantity": 2
+                    },
+                    {
+                        "name": "Water Bottle",
+                        "price": "2",
+                        "quantity": 2
+                    }
+                ]
+            },
+            {
+                "cart_items": [
+                    {
+                        "name": "Beef Burger",
+                        "price": "18",
+                        "quantity": 2
+                    },
+                    {
+                        "name": "Sprite",
+                        "price": "4",
+                        "quantity": 2
+                    },
+                    {
+                        "name": "Water Bottle",
+                        "price": "2",
+                        "quantity": 1
+                    }
+                ]
+            },
+            {
+                "cart_items": [
+                    {
+                        "name": "French Fries",
+                        "price": "7",
+                        "quantity": 1
+                    },
+                    {
+                        "name": "Beef Burger",
+                        "price": "18",
+                        "quantity": 1
+                    },
+                    {
+                        "name": "Pepsi",
+                        "price": "4",
+                        "quantity": 1
+                    },
+                    {
+                        "name": "Water Bottle",
+                        "price": "2",
+                        "quantity": 1
+                    }
+                ]
+            },
+            {
+                "cart_items": [
+                    {
+                        "name": "Chicken Burger",
+                        "price": "14",
+                        "quantity": 1
+                    },
+                    {
+                        "name": "Pepsi",
+                        "price": "4",
+                        "quantity": 1
+                    }
+                ]
+            },
+            {
+                "cart_items": [
+                    {
+                        "name": "Chicken Burger",
+                        "price": "14",
+                        "quantity": 5
+                    },
+                    {
+                        "name": "Pepsi",
+                        "price": "4",
+                        "quantity": 5
+                    }
+                ]
+            },
+            {
+                "cart_items": [
+                    {
+                        "name": "Chicken Burger",
+                        "price": "11",
+                        "quantity": 3
+                    },
+                    {
+                        "name": "Pepsi",
+                        "price": "4",
+                        "quantity": 3
+                    }
+                ]
+            }
+        ]
+    }
+]
