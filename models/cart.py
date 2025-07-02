@@ -19,9 +19,6 @@ class Cart:
         except FileNotFoundError:
             self.__menu = []
 
-
-    from tabulate import tabulate  # تأكد تضيفها بالبداية
-
     def display_menu(self):
         if not self.__menu:
             print("- The menu is empty.")
