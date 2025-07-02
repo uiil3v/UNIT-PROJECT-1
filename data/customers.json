@@ -109,5 +109,11 @@
                 ]
             }
         ]
+    },
+    {
+        "phone": "0500303050",
+        "loyalty_points": 0,
+        "membership_level": null,
+        "order_history": []
     }
 ]

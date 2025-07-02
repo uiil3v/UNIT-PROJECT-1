@@ -68,5 +68,12 @@
         "phone": "0588889999",
         "position": "waiter",
         "id": "110"
+    },
+    {
+        "name": "Sai",
+        "email": "sai@gmail.com",
+        "phone": "0505050505",
+        "position": "Manager",
+        "id": "911"
     }
 ]

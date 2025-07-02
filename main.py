@@ -4,16 +4,19 @@ from managers.menu import Menu
 from managers.customerManager import CustomerManager
 from models.cart import Cart
 from models.customer import Customer
+from tabulate import tabulate
+from colorama import init, Fore, Style
+init(autoreset=True)
 
 
 while True:
     print()
-    print("--- Welcome to Burgerly Restaurant ---")
+    print(Fore.BLUE + "--- Welcome to Burgerly Restaurant ---")
     print("1. Login as Manager")
     print("2. Continue as Customer")
     print("3. Exit")
 
-    option = input("Your choice: ").strip()
+    option = input(Fore.GREEN + "Your choice: ").strip()
 
     match option:
         case "1":
@@ -24,7 +27,7 @@ while True:
             logged_manager = None
             while True:
                 print()
-                print("***** SIGN IN *****")
+                print(Fore.BLUE + "***** SIGN IN *****")
                 username = input("Enter the username: ").lower().strip()
                 password = input("Enter the password: ").lower().strip()
 
@@ -38,7 +41,7 @@ while True:
                     break
                 else:
                     print()
-                    print("- Wrong username or password. Please try again.")
+                    print(Fore.RED + "- Wrong username or password. Please try again.")
                 
 
             employeesManager = Manager()
@@ -50,33 +53,33 @@ while True:
 
                 while True:
                     print()
-                    print(f"- Welcome {logged_manager._ManagerAccount__name}!")
+                    print(Fore.YELLOW + f"- Welcome {logged_manager._ManagerAccount__name}!")
                     print()
-                    print(f"-" * 19)
-                    print("# Choose an option: ")
-                    print(f"-" * 19)
+                    print(Fore.LIGHTBLUE_EX + f"-" * 19)
+                    print(Fore.BLUE + "# Choose an option: ")
+                    print(Fore.LIGHTBLUE_EX + f"-" * 19)
                     print("1. Employee Settings")
                     print("2. Menu Settings")
                     print("3. Exit")
                     print()
                     
-                    option = input("Your choice: ").strip()
+                    option = input(Fore.GREEN + "Your choice: ").strip()
 
                     match option:
                         case "1":
 
                             while True:
                                 print()
-                                print(f"-" * 19)
-                                print("# Choose an option: ")
-                                print(f"-" * 19)
+                                print(Fore.LIGHTBLUE_EX + f"-" * 19)
+                                print(Fore.BLUE + "# Choose an option: ")
+                                print(Fore.LIGHTBLUE_EX + f"-" * 19)
                                 print("1. List Employees")
                                 print("2. Add Employee")
                                 print("3. Remove Employee")
                                 print("4. Update Employee Information")
                                 print("5. Exit")
                                 print()
-                                option = input("Your choice: ").strip()
+                                option = input(Fore.GREEN + "Your choice: ").strip()
 
                                 match option:
                                     case "1":
@@ -98,7 +101,8 @@ while True:
                                         if employeeID.isdigit():
                                             employeesManager.remove_employee(employeeID)
                                         else:
-                                            print("The ID must be a number.")
+                                            print()
+                                            print(Fore.RED + "- The ID must be a number.")
                                         print()
                                     case "4":
                                         print()
@@ -107,7 +111,7 @@ while True:
                                         break
 
                                     case _:
-                                        print("- Invalid inputs")
+                                        print(Fore.RED + "- Invalid inputs")
 
                         case "2":
                             while True:
@@ -121,7 +125,7 @@ while True:
                                 print("4. Update Dish")
                                 print("5. Exit")
                                 print()
-                                option = input("Your choice: ").strip()
+                                option = input(Fore.GREEN + "Your choice: ").strip()
 
                                 match option:
                                     case "1":
@@ -148,12 +152,13 @@ while True:
                                     case "5":
                                         break
                                     case _:
-                                        print("- Invalid inputs")
+                                        print(Fore.RED + "- Invalid inputs")
                         
                         case "3":
                             break
                         case _:
-                            print("- Invalid inputs")
+                            print()
+                            print(Fore.RED + "- Invalid inputs")
 
 
         case "2":
@@ -161,7 +166,7 @@ while True:
             cust.load_customers()
 
             print()
-            print("***** CUSTOMER LOGIN *****")
+            print(Fore.BLUE + "***** CUSTOMER LOGIN *****")
             while True:
                 phone = input("Enter your phone number: ").strip()
                 if phone.isdigit():
@@ -170,13 +175,13 @@ while True:
                     break
                 else:
                     print()
-                    print("- Invalid input. Please enter digits only.")
+                    print(Fore.RED + "- Invalid input. Please enter digits only.")
                     print()
             while True:
                 print()
-                print(f"-" * 19)
-                print("# Choose an option: ")
-                print(f"-" * 19)
+                print(Fore.LIGHTBLUE_EX + f"-" * 19)
+                print(Fore.BLUE + "# Choose an option: ")
+                print(Fore.LIGHTBLUE_EX + f"-" * 19)
                 print("1. View Menu")
                 print("2. Add to Cart")
                 print("3. Remove from or Clear Cart")
@@ -204,7 +209,7 @@ while True:
                                     print()
                                 else:
                                     print()
-                                    print("- Only numbers, please.")
+                                    print(Fore.RED + "- Only numbers, please.")
                                     print()
                     case "3":
                         while True:
@@ -214,7 +219,7 @@ while True:
                             print("2. Remove from Cart")
                             print()
 
-                            option = input("Enter Your choice: ").strip()
+                            option = input(Fore.GREEN + "Enter Your choice: ").strip()
                             if option.isdigit() :
                                 match option:
                                     case "0":
@@ -231,11 +236,11 @@ while True:
                                             custClass._Customer__cart.remove_from_cart(int(choice), int(quantity))
                                         else:
                                             print()
-                                            print("- Only numbers, please.")
+                                            print(Fore.RED + "- Only numbers, please.")
                                             print()             
                             else:
                                 print()
-                                print("- Only numbers, please.")
+                                print(Fore.RED + "- Only numbers, please.")
                                 print()
                     case "4":
                         custClass._Customer__cart.view_cart()
@@ -253,7 +258,7 @@ while True:
                             print(f"- Your current status: {custClass.customer_info()['membership_level']}")
                         else:
                             print()
-                            print("- Order cancelled.")                
+                            print(Fore.RED + "- Order cancelled.")                
                     case "6":
                         if custClass.customer_info()["loyalty_points"] > 0:
                             custClass.redeem_points()
@@ -265,7 +270,7 @@ while True:
                         custClass.check_loyalty_status()
                         info = custClass.customer_info()
                         print()
-                        print("------ Loyalty Info ------")
+                        print(Fore.YELLOW + "------ Loyalty Info ------")
                         print(f"Phone Number     : {info['phone']}")
                         print(f"Loyalty Points   : {info['loyalty_points']}")
                         print(f"Membership Level : {info['membership_level']}")
@@ -273,14 +278,14 @@ while True:
                     case "8":
                         break
                     case _:
-                        print("- Invalid inputs.")
+                        print(Fore.RED + "- Invalid inputs.")
 
 
         case "3":
             break
         case _:
             print()
-            print("- Invalid inputs.")
+            print(Fore.RED + "- Invalid inputs.")
             
 
 

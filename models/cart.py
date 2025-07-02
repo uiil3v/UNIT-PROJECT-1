@@ -1,5 +1,8 @@
 import json
 from models.dish import Dish
+from tabulate import tabulate
+from colorama import init, Fore, Style
+init(autoreset=True)
 
 class Cart:
     
@@ -17,15 +20,20 @@ class Cart:
             self.__menu = []
 
 
+    from tabulate import tabulate  # تأكد تضيفها بالبداية
+
     def display_menu(self):
         if not self.__menu:
             print("- The menu is empty.")
             return
         else:
             print()
-            print("--------- Menu ---------")
+            print(Fore.YELLOW + "     --------- Menu ---------")
+            table = []
             for id, dish in enumerate(self.__menu, start=1):
-                print(f"{id}. {dish._Dish__name} - {dish._Dish__price} SR")
+                table.append([id, dish._Dish__name, f"{float(dish._Dish__price):.2f} SR"])
+            print(tabulate(table, headers=["No", "Dish Name", "Price"], tablefmt="grid"))
+
 
 
 
@@ -50,27 +58,34 @@ class Cart:
             if qty > quantity:
                 self.__cart[choice - 1] = (dish, qty - quantity)
                 print()
-                print(f"Removed {quantity} of {dish._Dish__name}. Remaining: {qty - quantity}")
+                print(f"- Removed {quantity} of {dish._Dish__name}. Remaining: {qty - quantity}")
                 print()
             else:
                 removed_dish, _ = self.__cart.pop(choice - 1)
                 print()
-                print(f"Removed {removed_dish._Dish__name} completely from the cart.")
+                print(f"- Removed {removed_dish._Dish__name} completely from the cart.")
                 print()
 
 
     def view_cart(self):
         if not self.__cart:
-            print("- Your cart is empty.")
+            print(Fore.RED + "- Your cart is empty.")
             return
-        
-        print("\n--- Your Cart ---")
+
+        print()
+        print(Fore.YELLOW + "                -------- Your Cart --------")
+        table_data = []
         total = 0
+
         for i, (dish, qty) in enumerate(self.__cart, start=1):
             item_total = float(dish._Dish__price) * qty
             total += item_total
-            print(f"{i}. {dish._Dish__name} x{qty} = {item_total:.2f} SR")
-        print(f"Total: {total:.2f} SR\n")
+            table_data.append([i, dish._Dish__name, f"{dish._Dish__price} SR", qty, f"{item_total:.2f} SR"])
+
+        headers = ["No.", "Name", "Price", "Quantity", "Total"]
+        print(tabulate(table_data, headers=headers, tablefmt="grid"))
+        print(f"\nTotal: {total:.2f} SR\n")
+
     
 
     def clear_cart(self):

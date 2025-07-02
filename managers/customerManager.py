@@ -1,6 +1,8 @@
 import json
 from models.customer import Customer
 from models.cart import Cart
+from colorama import init, Fore, Style
+init(autoreset=True)
 
 class CustomerManager:
     def __init__ (self):
@@ -23,14 +25,14 @@ class CustomerManager:
         for cust in self.__customers:
             if cust._Customer__phone == phone:
                 print()
-                print("- You're now logged in. Let's start your order!")
+                print(Fore.GREEN + "- You're now logged in. Let's start your order!")
                 return cust
             
         new_customer = Customer(phone)
         self.__customers.append(new_customer)
         self.save_customers()
         print()
-        print("- New customer registered successfully. Let's start your order!")
+        print(Fore.GREEN + "- New customer registered successfully. Let's start your order!")
         return new_customer
     
 

@@ -1,4 +1,4 @@
-
+from tabulate import tabulate
 
 class Employee:
     def __init__ (self , name: str , email: str, phone: str, position: str,  id: str):
@@ -37,5 +37,21 @@ class Employee:
             position = data["position"],
             id = data["id"]
         )
+    
+
+    def get_id(self):
+        return self.__id
+
+    def get_name(self):
+        return self.__name
+
+    def get_email(self):
+        return self.__email
+
+    def get_phone(self):
+        return self.__phone
+
+    def get_position(self):
+        return self.__position
 
 

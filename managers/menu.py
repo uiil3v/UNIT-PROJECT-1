@@ -1,5 +1,8 @@
 from models.dish import Dish
 import json
+from tabulate import tabulate
+from colorama import init, Fore, Style
+init(autoreset=True)
 
 class Menu:
 
@@ -10,40 +13,42 @@ class Menu:
     def add_dish(self, name: str, price: float):
         for dish in self.__menu:
             if dish._Dish__name == name:
-                print("- This dish already exist!")
+                print(Fore.RED + "- This dish already exist!")
                 return
         self.__menu.append(Dish(name, price))
-        print(f"- '{name}' has been added to the menu for {price} SR.")
+        print(Fore.GREEN + f"- '{name}' has been added to the menu for {price} SR.")
         self.save_menu()
     
     def remove_dish (self, name: str):
         for dish in self.__menu:
             if dish._Dish__name == name:
                 self.__menu.remove(dish)
-                print(f"- '{name}' has been removed successfully.")
+                print(Fore.GREEN + f"- '{name}' has been removed successfully.")
                 self.save_menu()
                 return
-        print(f"- The dish '{name}' does not exist!")
+        print(Fore.RED + f"- The dish '{name}' does not exist!")
 
     def update_dish (self, name: str, new_price):
         for dish in self.__menu:
             if dish._Dish__name == name:
                 dish._Dish__price = new_price
-                print(f"- '{name}' has been updated successfully.")
+                print(Fore.GREEN + f"- '{name}' has been updated successfully.")
                 self.save_menu()
                 return
-        print(f"- The dish '{name}' does not exist!")
+        print(Fore.RED + f"- The dish '{name}' does not exist!")
 
 
     def display_menu(self):
         if not self.__menu:
-            print("- The menu is empty.")
+            print(Fore.RED + "- The menu is empty.")
+            return
         else:
             print()
-            print("------- Menu -------")
+            print(Fore.YELLOW + "   --------- Menu ---------")
+            table = []
             for dish in self.__menu:
-                print(f"{dish._Dish__name}: {dish._Dish__price} SR")
-            print()
+                table.append([dish._Dish__name, f"{float(dish._Dish__price):.2f} SR"])
+            print(tabulate(table, headers=["Dish Name", "Price"], tablefmt="grid"))
 
     
     def load_menu (self):

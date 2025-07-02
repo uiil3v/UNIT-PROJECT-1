@@ -1,6 +1,9 @@
 import json
 from models.employee import Employee
 from models.managerAccount import ManagerAccount
+from tabulate import tabulate
+from colorama import init, Fore, Style
+init(autoreset=True)
 
 class Manager:
     
@@ -123,14 +126,17 @@ class Manager:
         if not self.__employees:
             print("- No employees found.")
             return
+        
+        table = []
+        for emp in self.__employees:
+            table.append([
+                emp.get_name(),
+                emp.get_email(),
+                emp.get_phone(),
+                emp.get_position(),
+                emp.get_id()
+            ])
+        
         print()
-        print("---- Employees ----")
-        for index, data in enumerate(self.__employees , start=1):
-            print()
-            print(f"# Employee {index}:")
-            print(f"- Name: {data._Employee__name}")
-            print(f"- Email: {data._Employee__email}")
-            print(f"- Phone: {data._Employee__phone}")
-            print(f"- Position: {data._Employee__position}")
-            print(f"- ID: {data._Employee__id}")
-            print()
+        print(Fore.YELLOW +"            ---------- Employee List ----------")
+        print(tabulate(table, headers=["Name", "Email", "Phone", "Position", "ID"], tablefmt="grid"))
